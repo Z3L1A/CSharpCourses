@@ -11,7 +11,7 @@ namespace LabSix
             var key = ConsoleKey.Enter;
             while (key != ConsoleKey.Escape)
             { 
-                var array = GetArrayFilledByRandomNumbers(10000);
+                var array = GetArrayFilledByRandomNumbers(100000);
 
                 var selectionTask = Task.Run(() =>
                 {
@@ -137,6 +137,8 @@ namespace LabSix
             return array;
         }
     }
+
+    public class SelectionSorter : IComparable<>
 
     public class SortedArrayInfo
     {
