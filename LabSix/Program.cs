@@ -138,8 +138,6 @@ namespace LabSix
         }
     }
 
-    public class SelectionSorter : IComparable<>
-
     public class SortedArrayInfo
     {
         public double[] Array { get; set; }
