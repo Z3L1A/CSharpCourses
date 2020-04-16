@@ -8,7 +8,7 @@ namespace LabNine.Tests
     public class Tests
     {
         [Test]
-        public void TestSelectOnDoubleTest()
+        public void TestSelectOnTripleTest()
         {
             // Arrange
             Func<int, int> triple = a => a * 3;
@@ -20,6 +20,7 @@ namespace LabNine.Tests
 
             // Assert
             expectedResult.Should().BeEquivalentTo(actualResult);
+            CollectionAssert.AreEqual(expectedResult, actualResult);
         }
 
         [Test]

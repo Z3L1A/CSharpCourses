@@ -25,7 +25,7 @@ namespace LabNine
             Console.WriteLine();
             Console.WriteLine($"Среднее значение: {randomNumbers.Average()}");
             Console.WriteLine($"Кастомное среднее значение: {randomNumbers.TestAverage()}");
-
+            
             Console.ReadKey(true);
         }
     }
@@ -49,27 +49,28 @@ namespace LabNine
     {
         public static IEnumerable<TResult> TestSelect<T, TResult>(this IEnumerable<T> collection, Func<T, TResult> func)
         {
-            var result = new List<TResult>();
+            if (collection == null)
+            {
+                throw new ArgumentNullException();
+            }
 
             foreach (var item in collection)
             {
-                result.Add(func(item));
+                //result.Add(func(item));
+                yield return func(item);
             }
-
-            return result;
         }
 
         public static double TestAverage(this IEnumerable<int> collection)
         {
             var sum = 0;
-            var enumerable = collection.ToList();
 
-            foreach (var item in enumerable)
+            foreach (var item in collection)
             {
                 sum += item;
             }
 
-            return (double) sum / enumerable.Count;
+            return (double) sum / collection.Count();
         }
     }
 }
